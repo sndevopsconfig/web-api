@@ -25,12 +25,12 @@ pipeline {
                   steps{
                         script{
                         
-                              dockerImageName = "naileditcakedelivery/web-app"
+                              dockerImageName = "paymentdemo/web-app"
 
                               /**
                               * DevOps Config App related information
                               */
-                              appName='NailedIt Cake Delivery'
+                              appName='PaymentDemo'
                               deployableName = 'Production'
                               componentName="paymentService-v1.0"
                               collectionName="release-1.0"
