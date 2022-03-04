@@ -32,7 +32,7 @@ pipeline {
                               */
                               appName='PaymentDemo'
                               deployableName = 'Production'
-                              componentName="paymentService-v1.0"
+                              componentName="web-api-v1.0"
                               collectionName="release-1.0"
                               
                               /**
