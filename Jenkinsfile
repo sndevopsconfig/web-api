@@ -125,7 +125,16 @@ pipeline {
                   steps {
                         sh "echo validating configuration file ${configFilePath}"
                         script {
-                              changeSetId = snDevOpsConfigUpload(applicationName:"${appName}",target:'component',namePath:"${componentName}", configFile:"${configFilePath}", autoCommit:'true',autoValidate:'true',dataFormat:"${exportFormat}")
+                              changeSetId = snDevOpsConfigUpload(
+                                    applicationName: "${appName}",
+                                    target: 'component',
+                                    namePath: "${componentName}",
+                                    configFile: "${configFilePath}",
+                                    convertPath: 'true',
+                                    autoCommit: 'true',
+                                    autoValidate: 'true',
+                                    dataFormat: "${exportFormat}"
+                              )
 
                               echo "validation result $changeSetId"
 
@@ -148,7 +157,11 @@ pipeline {
                         echo "Triggering Get snapshots for applicationName:${appName},deployableName:${deployableName},changeSetId:${changeSetId}"
 
                         script {
-                              changeSetResults = snDevOpsConfigGetSnapshots(applicationName:"${appName}",deployableName:"${deployableName}",changesetNumber:"${changeSetId}")
+                              changeSetResults = snDevOpsConfigGetSnapshots(
+                                    applicationName: "${appName}",
+                                    deployableName: "${deployableName}",
+                                    changesetNumber: "${changeSetId}"
+                              )
                               if (!changeSetResults){
                                     isSnapshotCreated=false
                                     echo "no snapshot were created"
@@ -176,7 +189,10 @@ pipeline {
                   steps {
                         script {
                               echo "Get latest snapshot"
-                              snapshotResults = snDevOpsConfigGetSnapshots(applicationName:"${appName}",deployableName:"${deployableName}")
+                              snapshotResults = snDevOpsConfigGetSnapshots(
+                                    applicationName: "${appName}",
+                                    deployableName: "${deployableName}"
+                              )
                               if (!snapshotResults) {
                                     error "no snapshots found"
                               } else {
@@ -200,7 +216,11 @@ pipeline {
                   }
                   steps {
                         script {
-                              validateResponse = snDevOpsConfigValidate( applicationName:"${appName}",deployableName:"${deployableName}",snapshotName: "${snapshotObject.name}" )
+                              validateResponse = snDevOpsConfigValidate(
+                                    applicationName: "${appName}",
+                                    deployableName: "${deployableName}",
+                                    snapshotName: "${snapshotObject.name}"
+                              )
                               if(validateResponse != null) {
                                     echo "validation Response submited for ${snapshotObject.name}"
                               }
@@ -214,7 +234,10 @@ pipeline {
                   steps {
                         script {
                               echo "Get latest snapshot for appName : ${appName} , deployableName: ${deployableName}"
-                              snapshotResults = snDevOpsConfigGetSnapshots(applicationName:"${appName}",deployableName:"${deployableName}")
+                              snapshotResults = snDevOpsConfigGetSnapshots(
+                                    applicationName: "${appName}",
+                                    deployableName: "${deployableName}"
+                              )
                               if (!changeSetResults) {
                                     error "no snapshots found for appName : ${appName} , deployableName: ${deployableName}"
                               } else {
@@ -255,7 +278,11 @@ pipeline {
                   steps {
                         script {
                               echo "Step to publish snapshot applicationName:${appName},deployableName:${deployableName} snapshotName:${snapshotName}"
-                              publishSnapshotResults = snDevOpsConfigPublish(applicationName:"${appName}",deployableName:"${deployableName}",snapshotName: "${snapshotName}")
+                              publishSnapshotResults = snDevOpsConfigPublish(
+                                    applicationName: "${appName}",
+                                    deployableName: "${deployableName}",
+                                    snapshotName: "${snapshotName}"
+                              )
                               echo "Publish result for applicationName:${appName},deployableName:${deployableName} snapshotName:${snapshotName} is ${publishSnapshotResults} "
                         }
                   }
@@ -286,7 +313,15 @@ pipeline {
                               echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
                               echo "Configfile exporter file name ${fullFileName}"
                               sh  'echo "<<<<<<<<< export file is starting >>>>>>>>"'
-                              exportResponse = snDevOpsConfigExport(applicationName: "${appName}", snapshotName: "${snapshotObject.name}", deployableName: "${deployableName}",exporterFormat: "${exportFormat}", fileName:"${fullFileName}", exporterName: "${exporterName}", exporterArgs: "${exporterArgs}")
+                              exportResponse = snDevOpsConfigExport(
+                                    applicationName: "${appName}",
+                                    snapshotName: "${snapshotObject.name}",
+                                    deployableName: "${deployableName}",
+                                    exporterFormat: "${exportFormat}",
+                                    fileName:"${fullFileName}",
+                                    exporterName: "${exporterName}",
+                                    exporterArgs: "${exporterArgs}"
+                              )
                               echo " RESPONSE FROM EXPORT : ${exportResponse}"
                         }
                   }
