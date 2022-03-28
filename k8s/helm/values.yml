@@ -45,7 +45,7 @@ service:
   port: 8080
   
 routing:
-  enabled: true 
+  enabled: false
   host: k8s.sndevops.abc
   path: /web-app
 
