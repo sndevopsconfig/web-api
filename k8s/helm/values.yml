@@ -57,7 +57,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: k8s.sndevops.abc
+    - host: k8s.sndevops.xyz
       paths:
         - path: /demo-devops-webapp
           pathType: ImplementationSpecific
