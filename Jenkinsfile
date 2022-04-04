@@ -193,6 +193,8 @@ pipeline {
                                     applicationName: "${appName}",
                                     deployableName: "${deployableName}"
                               )
+                              
+                              echo "SNAPSHOT RESULT: ${snapshotResults}"
                               if (!snapshotResults) {
                                     error "no snapshots found"
                               } else {
