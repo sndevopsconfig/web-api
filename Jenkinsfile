@@ -295,7 +295,7 @@ pipeline {
                         script {
                               // DevOps Change Enable
                               echo "DevOps Change - trigger change request"
-                              snDevOpsChange()
+                              //snDevOpsChange()
                               
                               /*snDevOpsChange(changeRequestDetails: """{
                                     "setCloseCode": false,
