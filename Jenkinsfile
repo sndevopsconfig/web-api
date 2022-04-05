@@ -99,11 +99,11 @@ pipeline {
             // Test Step (simulate)
             stage('Test') {           
                   steps {         
-                        //sh 'echo "Tests passed"'
-                        def scannerHome = tool 'SonarQube';
-                        withSonarQubeEnv() {
-                              sh "${scannerHome}/bin/sonar-scanner"
-                        }
+                        sh 'echo "Tests passed"'
+                        //def scannerHome = tool 'SonarQube';
+                        //withSonarQubeEnv() {
+                        //      sh "${scannerHome}/bin/sonar-scanner"
+                        //}
                   }
             }     
             
