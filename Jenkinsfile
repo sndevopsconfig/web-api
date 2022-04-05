@@ -100,7 +100,7 @@ pipeline {
             stage('Test') {           
                   steps {         
                         //sh 'echo "Tests passed"'
-                        def scannerHome = tool 'SonarScanner';
+                        def scannerHome = tool 'SonarQube';
                         withSonarQubeEnv() {
                               sh "${scannerHome}/bin/sonar-scanner"
                         }
