@@ -14,7 +14,7 @@
 
 pipeline {    
 
-      agent any
+      agent master
       /**
       * Jenkins pipline related variables
       */
