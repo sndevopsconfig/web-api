@@ -14,7 +14,9 @@
 
 pipeline {    
 
-      agent master
+      agent {
+            label "master"
+      }
       /**
       * Jenkins pipline related variables
       */
