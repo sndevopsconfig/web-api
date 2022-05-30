@@ -12,11 +12,8 @@
 * exporterArgs = ''
 */
 
-pipeline {    
-
-      agent {
-            label "master"
-      }
+pipeline {
+      agent any
       /**
       * Jenkins pipline related variables
       */
