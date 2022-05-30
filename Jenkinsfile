@@ -303,11 +303,10 @@ pipeline {
                               
                               
                               snDevOpsChange(changeRequestDetails: """{
-                                    "setCloseCode": false,
+                                    "setCloseCode": true,
                                     "attributes": {
                                           "category": "DevOps",
-                                          "priority": "3",
-                                          "close_code": "successful"
+                                          "priority": "3"
                                     }
                               }""")
                               /*
