@@ -368,6 +368,11 @@ pipeline {
             }
             failure {
                   echo "I failed!!!"
+                  snDevOpsChange(changeRequestDetails: """{
+                                    "attributes": {
+                                          "close_code": "unsuccessful"
+                                    }
+                              }""")
             }
       }
 }
