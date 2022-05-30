@@ -357,6 +357,7 @@ pipeline {
                               echo "********************** BEGIN Deployment ****************"
                               echo "Applying docker image ${dockerImageNameTag}"
                               echo "********************** END Deployment ****************"
+                              ec
                         }
                   }
             }
