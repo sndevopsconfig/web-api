@@ -299,11 +299,20 @@ pipeline {
                         script {
                               // DevOps Change Enable
                               echo "DevOps Change - trigger change request"
-                              changereq = snDevOpsChange()
-                              echo "Change Record: " + changereq
+                              //changereq = snDevOpsChange()
+                              //echo "Change Record: " + changereq
                               
                               
-                              /*snDevOpsChange(changeRequestDetails: """{
+                              snDevOpsChange(changeRequestDetails: """{
+                                    "setCloseCode": false,
+                                    "attributes": {
+                                          "category": "DevOps",
+                                          "priority": "3",
+                                          "close_code": "successful"
+                                    }
+                              }""")
+                              /*
+                              snDevOpsChange(changeRequestDetails: """{
                                     "setCloseCode": false,
                                     "attributes": {
                                           "category": "DevOps",
@@ -313,9 +322,11 @@ pipeline {
                                           },
                                           "business_service": {
                                               "name": "PaymentDemo_Production_1"
-                                          }
+                                          },
+                                          "close_code": "successful"
                                     }
-                              }""")*/
+                              }""")
+                              */
 
                               echo "Exporting for App: ${appName} Deployable; ${deployableName} Exporter name ${exporterName} "
                               echo "Configfile exporter file name ${fullFileName}"
