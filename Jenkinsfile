@@ -300,7 +300,7 @@ pipeline {
                               // DevOps Change Enable
                               echo "DevOps Change - trigger change request"
                               changereq = snDevOpsChange()
-                              echo changereq
+                              echo "Change Record: " + changereq
                               
                               
                               /*snDevOpsChange(changeRequestDetails: """{
