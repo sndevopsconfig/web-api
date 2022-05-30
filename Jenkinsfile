@@ -299,7 +299,9 @@ pipeline {
                         script {
                               // DevOps Change Enable
                               echo "DevOps Change - trigger change request"
-                              //snDevOpsChange()
+                              changereq = snDevOpsChange()
+                              echo changereq
+                              
                               
                               /*snDevOpsChange(changeRequestDetails: """{
                                     "setCloseCode": false,
@@ -352,6 +354,9 @@ pipeline {
       post {
             always {
                   echo ">>>>> Displaying Test results <<<<<"
+            }
+            failure {
+                  echo "I failed!!!"
             }
       }
 }
