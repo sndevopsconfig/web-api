@@ -300,7 +300,6 @@ pipeline {
                               // DevOps Change Enable
                               echo "DevOps Change - trigger change request"
                               changereq = snDevOpsChange()
-                              sh -c "echo changereq|sed -r \"s/CHG(.+)/\\1/\""
                               echo "Change Record: " + changereq
                               
                               
