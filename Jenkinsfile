@@ -127,7 +127,7 @@ pipeline {
             stage('Upload Configuration Data') {
                   steps {
                         sh "echo FILE CONTENT:"
-                        sh "echo ${configFilePath}"
+                        sh "cat ${configFilePath}"
                         sh "echo validating configuration file ${configFilePath}"
                         script {
                               changeSetId = snDevOpsConfigUpload(
