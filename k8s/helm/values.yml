@@ -2,7 +2,7 @@ replicaCount: 4
 
 mongo:
   dbport : 27017
-  dbUrl: "https://awesome.prod.uswest1.training-studio.mongodb"
+  dbUrl: "https://awesome.test.uswest1.training-studio.mongodb"
   dbUserName : "@@database/dbUserName@@"
   dbPassword : "@@database/dbPassword@@"
 
