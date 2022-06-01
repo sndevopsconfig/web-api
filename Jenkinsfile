@@ -126,8 +126,6 @@ pipeline {
             // Upload configuration data to DevOps Config
             stage('Upload Configuration Data') {
                   steps {
-                        sh "echo FILE CONTENT:"
-                        sh "cat ${configFilePath}"
                         sh "echo validating configuration file ${configFilePath}"
                         script {
                               changeSetId = snDevOpsConfigUpload(
